@@ -3,7 +3,10 @@ class AppsController < ApplicationController
 
   # GET /apps
   def index
-    @apps = App.all
+    max_count = 5
+    app = params[:app]
+    @apps = App.find_by(id: app[:id])
+    p params
 
     render json: @apps
   end
