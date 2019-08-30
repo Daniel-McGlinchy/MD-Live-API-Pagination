@@ -1,1 +1,6 @@
-curl -X GET -sS -H 'Content-Type: application/json' -d '{"foo": "foo", "id": 5}' http:/localhost:3000/apps | python -m json.tool
+curl -X GET \
+	-sSi \
+	-H 'Content-Type: application/json' \
+	-H 'FOO: BAR' \
+	-d '{"foo": "foo", "id": 5}' \
+	http:/localhost:3000/apps
