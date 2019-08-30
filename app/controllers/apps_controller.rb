@@ -5,8 +5,10 @@ class AppsController < ApplicationController
   def index
     max_count = 5
     app = params[:app]
-    @apps = App.find_by(id: app[:id])
-    p params
+    start = app[:id].to_i
+    stop = start + max_count
+    @apps = App.where(id: (start..stop))
+    response.headers['FOO'] = 'FOO'
 
     render json: @apps
   end
